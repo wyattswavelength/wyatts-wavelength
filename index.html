@@ -259,6 +259,34 @@
             font-family: 'Manrope', sans-serif;
         }
 
+        .about-section {
+            margin-top: 80px;
+            padding: 50px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            animation: fadeIn 0.8s ease-out 1s both;
+        }
+
+        .about-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .about-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text:last-child {
+            margin-bottom: 0;
+        }
+
         .subscription-section {
             margin-top: 80px;
             padding: 40px 50px;
@@ -478,7 +506,8 @@
             }
 
             .recommendations-section,
-            .subscription-section {
+            .subscription-section,
+            .about-section {
                 padding: 30px 25px;
             }
 
@@ -731,6 +760,17 @@
                 </div>
             </section>
         </main>
+
+        <!-- About Section -->
+        <section class="about-section">
+            <h2 class="about-title">About</h2>
+            <p class="about-text">
+                I'm Sam Wyatt, a tech and retail consultant based in Denver by way of Swansea, Wales. I'm endlessly fascinated by the world around us—the stories we tell, the systems we build, and the ideas that shape how we live. This monthly digest is my attempt to cut through the noise and share what's actually worth your time. Whether it's a fantasy epic that kept me up too late, an album that shifted my perspective, or a current event that demands attention, I'm here to point you toward the signal.
+            </p>
+            <p class="about-text">
+                Think of this as a curated feed from someone who consumes content voraciously and wants to save you some time. Not everything here will be for you, but hopefully something will stick.
+            </p>
+        </section>
 
         <!-- Recommendations Section -->
         <section class="recommendations-section">
