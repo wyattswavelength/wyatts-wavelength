@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyatt's Wavelength - Monthly Digest</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-card: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --accent: #d4521e;
+            --accent-light: #ff6b3d;
+            --border: #e8e3dc;
+            --shadow: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        header {
+            margin-bottom: 80px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 40px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .archive-nav {
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        .archive-label {
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .archive-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .archive-link {
+            font-family: 'Manrope', sans-serif;
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            text-decoration: none;
+            color: var(--text-primary);
+            border-radius: 20px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .archive-link:hover {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .archive-link.active {
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .current-month {
+            margin-bottom: 60px;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .month-header {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .month-year {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .intro-text {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 50px;
+            line-height: 1.8;
+            border-left: 3px solid var(--accent);
+            padding-left: 25px;
+        }
+
+        .category {
+            margin-bottom: 60px;
+            animation: slideUp 0.6s ease-out both;
+        }
+
+        .category:nth-child(1) { animation-delay: 0.5s; }
+        .category:nth-child(2) { animation-delay: 0.6s; }
+        .category:nth-child(3) { animation-delay: 0.7s; }
+        .category:nth-child(4) { animation-delay: 0.8s; }
+        .category:nth-child(5) { animation-delay: 0.9s; }
+        .category:nth-child(6) { animation-delay: 1s; }
+
+        .category-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .category-icon {
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .items {
+            display: grid;
+            gap: 20px;
+        }
+
+        .item {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--accent);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 20px var(--shadow);
+        }
+
+        .item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .item-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .item-meta {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .item-description {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+        }
+
+        .album-cover {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
+        }
+
+        .music-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .music-content {
+            flex: 1;
+        }
+
+        .rating {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 8px;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .subscription-section {
+            margin-top: 80px;
+            padding: 40px 50px;
+            background: linear-gradient(135deg, #ffeee6 0%, #fff5f0 100%);
+            border-radius: 12px;
+            border: 2px solid var(--accent);
+            text-align: center;
+            animation: fadeIn 0.8s ease-out 1.1s both;
+        }
+
+        .subscription-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .subscription-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+        }
+
+        .subscription-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscription-inline {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .subscription-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .subscription-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(212, 82, 30, 0.2);
+        }
+
+        .subscription-btn {
+            font-family: 'Manrope', sans-serif;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .subscription-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 82, 30, 0.3);
+        }
+
+        .subscription-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .recommendations-section {
+            margin-top: 80px;
+            padding: 50px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            animation: fadeIn 0.8s ease-out 1.2s both;
+        }
+
+        .recommendations-title {
+            font-family: 'Manrope', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .recommendations-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .recommendations-form {
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: 'Crimson Pro', serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212, 82, 30, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-btn {
+            font-family: 'Manrope', sans-serif;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 82, 30, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 2px solid var(--border);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .month-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .recommendations-section,
+            .subscription-section {
+                padding: 30px 25px;
+            }
+
+            .subscription-inline {
+                flex-direction: column;
+            }
+
+            .subscription-btn {
+                width: 100%;
+            }
+
+            .album-cover {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wyatt's Wavelength</h1>
+            <p class="subtitle">Curated monthly reads, listens, and what's happening</p>
+        </header>
+
+        <!-- Archive Navigation -->
+        <nav class="archive-nav">
+            <span class="archive-label">Archive</span>
+            <div class="archive-links">
+                <a href="#" class="archive-link active">February 2026</a>
+                <a href="#" class="archive-link">January 2026</a>
+                <a href="#" class="archive-link">December 2025</a>
+                <!-- Add more months as you create them -->
+            </div>
+        </nav>
+
+        <!-- Current Month -->
+        <main class="current-month">
+            <div class="month-header">
+                <h2>February</h2>
+                <span class="month-year">2026</span>
+            </div>
+
+            <p class="intro-text">
+                A month of deep dives into sci-fi classics, discovering new indie artists, and tracking the stories that matter. Here's what stood out.
+            </p>
+
+            <!-- Books -->
+            <section class="category">
+                <h3 class="category-title">
+                    <span class="category-icon">📚</span>
+                    Books
+                </h3>
+                <div class="items">
+                    <div class="item">
+                        <div class="item-title">Dune by Frank Herbert <span class="rating">9/10</span></div>
+                        <div class="item-meta">Science Fiction</div>
+                        <div class="item-description">
+                            An epic tale of politics, religion, and ecology on a desert planet. The world-building is unmatched, and the themes about resource scarcity feel incredibly relevant today.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Project Hail Mary by Andy Weir</div>
+                        <div class="item-meta">Science Fiction</div>
+                        <div class="item-description">
+                            A gripping space survival story with clever science and an unexpectedly touching friendship. Couldn't put it down.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Watch & Listen (Movies, TV, Podcasts) -->
+            <section class="category">
+                <h3 class="category-title">
+                    <span class="category-icon">🎬</span>
+                    Watch & Listen
+                </h3>
+                <div class="items">
+                    <div class="item">
+                        <div class="item-title">Everything Everywhere All at Once <span class="rating">10/10</span></div>
+                        <div class="item-meta">Movie · Sci-Fi Drama · 2022</div>
+                        <div class="item-description">
+                            Chaotic, heartfelt, and utterly brilliant. A multiverse film that's really about family, connection, and finding meaning in chaos.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">The Bear (Season 2) <span class="rating">9/10</span></div>
+                        <div class="item-meta">TV Show · Drama · Hulu</div>
+                        <div class="item-description">
+                            High-stress kitchen drama with incredible character development. The "Fishes" episode is some of the best television I've ever seen.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Radiolab: The Living Room <span class="rating">8/10</span></div>
+                        <div class="item-meta">Podcast · Science & Storytelling</div>
+                        <div class="item-description">
+                            A beautiful exploration of how spaces shape our memories and relationships. Made me think about my own home differently.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Huberman Lab: Sleep Toolkit <span class="rating">9/10</span></div>
+                        <div class="item-meta">Podcast · Health & Science</div>
+                        <div class="item-description">
+                            Practical, science-backed strategies for better sleep. Already implementing the morning sunlight routine.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Music -->
+            <section class="category">
+                <h3 class="category-title">
+                    <span class="category-icon">🎵</span>
+                    Music
+                </h3>
+                <div class="items music-items">
+                    <div class="item music-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Tame_Impala_-_Currents.png" alt="Currents Album Cover" class="album-cover">
+                        <div class="music-content">
+                            <div class="item-title">Currents by Tame Impala <span class="rating">9/10</span></div>
+                            <div class="item-meta">Psychedelic Pop · Album</div>
+                            <div class="item-description">
+                                Perfect late-night listening. "Let It Happen" is an absolute journey.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item music-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/8/8b/Phoebe_Bridgers_-_Punisher.png" alt="Punisher Album Cover" class="album-cover">
+                        <div class="music-content">
+                            <div class="item-title">Phoebe Bridgers - Punisher <span class="rating">10/10</span></div>
+                            <div class="item-meta">Indie Folk · Album</div>
+                            <div class="item-description">
+                                Hauntingly beautiful songwriting. "I Know The End" builds to one of the most cathartic finales in recent music.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Events -->
+            <section class="category">
+                <h3 class="category-title">
+                    <span class="category-icon">🌍</span>
+                    Current Events
+                </h3>
+                <div class="items">
+                    <div class="item">
+                        <div class="item-title">AI Regulation Debate in EU <span class="rating">Important</span></div>
+                        <div class="item-meta">Policy · Technology</div>
+                        <div class="item-description">
+                            The EU's AI Act is setting global precedent for how we regulate artificial intelligence. Watching closely how they balance innovation with safety.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Climate Tech Breakthroughs <span class="rating">Hopeful</span></div>
+                        <div class="item-meta">Science · Environment</div>
+                        <div class="item-description">
+                            New carbon capture technology showing promise in Iceland trials. Small-scale but could be a game-changer if it scales economically.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Articles -->
+            <section class="category">
+                <h3 class="category-title">
+                    <span class="category-icon">✍️</span>
+                    Articles
+                </h3>
+                <div class="items">
+                    <div class="item">
+                        <div class="item-title">How to Build a Life - The Atlantic <span class="rating">9/10</span></div>
+                        <div class="item-meta">Essay Series by Arthur C. Brooks</div>
+                        <div class="item-description">
+                            A thoughtful series on happiness and meaning. The piece on deep work versus shallow busyness really resonated.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">The Case for Optimism <span class="rating">8/10</span></div>
+                        <div class="item-meta">Long Read · NY Times</div>
+                        <div class="item-description">
+                            Data-driven argument about why the world is getting better in measurable ways, even if it doesn't feel like it.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Email Subscription -->
+        <section class="subscription-section">
+            <h2 class="subscription-title">📬 Get Notified</h2>
+            <p class="subscription-subtitle">
+                Subscribe to get an email when the new monthly digest is published. No spam, just monthly updates on what's worth your time.
+            </p>
+            <form class="subscription-form" action="https://formspree.io/f/YOUR_SUBSCRIPTION_FORM_ID" method="POST">
+                <div class="subscription-inline">
+                    <input type="email" name="email" placeholder="your@email.com" required class="subscription-input">
+                    <input type="hidden" name="_subject" value="New Monthly Digest Subscriber">
+                    <button type="submit" class="subscription-btn">Subscribe</button>
+                </div>
+                <p class="subscription-note">Unsubscribe anytime. I'll only email when there's a new post.</p>
+            </form>
+        </section>
+
+        <!-- Recommendations Section -->
+        <section class="recommendations-section">
+            <h2 class="recommendations-title">Send Me Your Recommendations</h2>
+            <p class="recommendations-subtitle">
+                Enjoying something great? I'd love to hear about it. Share what you've been consuming and I'll check it out!
+            </p>
+            <form class="recommendations-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email (optional)</label>
+                    <input type="email" id="email" name="email" placeholder="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select a category...</option>
+                        <option value="book">📚 Book</option>
+                        <option value="movie">🎬 Movie/TV/Podcast</option>
+                        <option value="music">🎵 Music</option>
+                        <option value="article">✍️ Article</option>
+                        <option value="event">📅 Event</option>
+                        <option value="other">💡 Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="recommendation">What are you recommending?</label>
+                    <input type="text" id="recommendation" name="recommendation" required placeholder="Title or name">
+                </div>
+                <div class="form-group">
+                    <label for="message">Why should I check it out?</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tell me what makes it special..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Recommendation</button>
+            </form>
+        </section>
+
+        <footer>
+            <p>Updated monthly with love · Last updated February 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // ============================================
+        // EASY UPDATE SECTION - EDIT YOUR CONTENT HERE
+        // ============================================
+
+        const MONTHLY_DATA = {
+            currentMonth: {
+                month: "February",
+                year: "2026",
+                intro: "A month of deep dives into sci-fi classics, discovering new indie artists, and getting lost in some fantastic podcasts. Here's what stood out.",
+                
+                books: [
+                    {
+                        title: "Dune by Frank Herbert",
+                        rating: "9/10",
+                        meta: "Science Fiction",
+                        description: "An epic tale of politics, religion, and ecology on a desert planet. The world-building is unmatched, and the themes about resource scarcity feel incredibly relevant today."
+                    },
+                    {
+                        title: "Project Hail Mary by Andy Weir",
+                        rating: "8/10",
+                        meta: "Science Fiction",
+                        description: "A gripping space survival story with clever science and an unexpectedly touching friendship. Couldn't put it down."
+                    }
+                ],
+                
+                watchAndListen: [
+                    {
+                        title: "Everything Everywhere All at Once",
+                        rating: "10/10",
+                        meta: "Movie · Sci-Fi Drama · 2022",
+                        description: "Chaotic, heartfelt, and utterly brilliant. A multiverse film that's really about family, connection, and finding meaning in chaos."
+                    },
+                    {
+                        title: "The Bear (Season 2)",
+                        rating: "9/10",
+                        meta: "TV Show · Drama · Hulu",
+                        description: "High-stress kitchen drama with incredible character development. The \"Fishes\" episode is some of the best television I've ever seen."
+                    },
+                    {
+                        title: "Radiolab: The Living Room",
+                        rating: "8/10",
+                        meta: "Podcast · Science & Storytelling",
+                        description: "A beautiful exploration of how spaces shape our memories and relationships. Made me think about my own home differently."
+                    },
+                    {
+                        title: "Huberman Lab: Sleep Toolkit",
+                        rating: "9/10",
+                        meta: "Podcast · Health & Science",
+                        description: "Practical, science-backed strategies for better sleep. Already implementing the morning sunlight routine."
+                    }
+                ],
+                
+                music: [
+                    {
+                        title: "Currents by Tame Impala",
+                        rating: "9/10",
+                        albumCover: "https://upload.wikimedia.org/wikipedia/en/9/9b/Tame_Impala_-_Currents.png",
+                        meta: "Psychedelic Pop · Album",
+                        description: "Perfect late-night listening. \"Let It Happen\" is an absolute journey."
+                    },
+                    {
+                        title: "Phoebe Bridgers - Punisher",
+                        rating: "10/10",
+                        albumCover: "https://upload.wikimedia.org/wikipedia/en/8/8b/Phoebe_Bridgers_-_Punisher.png",
+                        meta: "Indie Folk · Album",
+                        description: "Hauntingly beautiful songwriting. \"I Know The End\" builds to one of the most cathartic finales in recent music."
+                    }
+                ],
+
+                events: [
+                    {
+                        title: "AI Regulation Debate in EU",
+                        rating: "Important",
+                        meta: "Policy · Technology",
+                        description: "The EU's AI Act is setting global precedent for how we regulate artificial intelligence. Watching closely how they balance innovation with safety."
+                    },
+                    {
+                        title: "Climate Tech Breakthroughs",
+                        rating: "Hopeful",
+                        meta: "Science · Environment",
+                        description: "New carbon capture technology showing promise in Iceland trials. Small-scale but could be a game-changer if it scales economically."
+                    }
+                ],
+                
+                articles: [
+                    {
+                        title: "How to Build a Life - The Atlantic",
+                        rating: "9/10",
+                        meta: "Essay Series by Arthur C. Brooks",
+                        description: "A thoughtful series on happiness and meaning. The piece on deep work versus shallow busyness really resonated."
+                    },
+                    {
+                        title: "The Case for Optimism",
+                        rating: "8/10",
+                        meta: "Long Read · NY Times",
+                        description: "Data-driven argument about why the world is getting better in measurable ways, even if it doesn't feel like it."
+                    }
+                ]
+            },
+            
+            // Add your archive months here
+            archive: [
+                { month: "February", year: "2026" },
+                { month: "January", year: "2026" },
+                { month: "December", year: "2025" }
+            ]
+        };
+
+        // ALBUM COVER INSTRUCTIONS:
+        // To add album covers, you can:
+        // 1. Use a URL from Wikipedia (search "[album name] wikipedia" and copy image URL)
+        // 2. Use a direct image URL from any source
+        // 3. Upload your own images to a free service like Imgur or imgbb
+        // 4. Just add the albumCover property with the URL to any music item
+
+        // You can add JavaScript functionality here for switching between months
+        // For now, this is a static single-page version
+    </script>
+</body>
+</html>
