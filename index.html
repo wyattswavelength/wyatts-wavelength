@@ -509,9 +509,6 @@
             <span class="archive-label">Archive</span>
             <div class="archive-links">
                 <a href="#" class="archive-link active">February 2026</a>
-                <a href="#" class="archive-link">January 2026</a>
-                <a href="#" class="archive-link">December 2025</a>
-                <!-- Add more months as you create them -->
             </div>
         </nav>
 
@@ -545,44 +542,6 @@
                         <div class="item-meta">Science Fiction</div>
                         <div class="item-description">
                             A gripping space survival story with clever science and an unexpectedly touching friendship. Couldn't put it down.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Watch & Listen (Movies, TV, Podcasts) -->
-            <section class="category">
-                <h3 class="category-title">
-                    <span class="category-icon">🎬</span>
-                    Watch & Listen
-                </h3>
-                <div class="items">
-                    <div class="item">
-                        <div class="item-title">Everything Everywhere All at Once <span class="rating">10/10</span></div>
-                        <div class="item-meta">Movie · Sci-Fi Drama · 2022</div>
-                        <div class="item-description">
-                            Chaotic, heartfelt, and utterly brilliant. A multiverse film that's really about family, connection, and finding meaning in chaos.
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">The Bear (Season 2) <span class="rating">9/10</span></div>
-                        <div class="item-meta">TV Show · Drama · Hulu</div>
-                        <div class="item-description">
-                            High-stress kitchen drama with incredible character development. The "Fishes" episode is some of the best television I've ever seen.
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Radiolab: The Living Room <span class="rating">8/10</span></div>
-                        <div class="item-meta">Podcast · Science & Storytelling</div>
-                        <div class="item-description">
-                            A beautiful exploration of how spaces shape our memories and relationships. Made me think about my own home differently.
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Huberman Lab: Sleep Toolkit <span class="rating">9/10</span></div>
-                        <div class="item-meta">Podcast · Health & Science</div>
-                        <div class="item-description">
-                            Practical, science-backed strategies for better sleep. Already implementing the morning sunlight routine.
                         </div>
                     </div>
                 </div>
@@ -665,23 +624,45 @@
                     </div>
                 </div>
             </section>
-        </main>
 
-        <!-- Email Subscription -->
-        <section class="subscription-section">
-            <h2 class="subscription-title">📬 Get Notified</h2>
-            <p class="subscription-subtitle">
-                Subscribe to get an email when the new monthly digest is published. No spam, just monthly updates on what's worth your time.
-            </p>
-            <form class="subscription-form" action="https://formspree.io/f/YOUR_SUBSCRIPTION_FORM_ID" method="POST">
-                <div class="subscription-inline">
-                    <input type="email" name="email" placeholder="your@email.com" required class="subscription-input">
-                    <input type="hidden" name="_subject" value="New Monthly Digest Subscriber">
-                    <button type="submit" class="subscription-btn">Subscribe</button>
+            <!-- Watch & Listen (Movies, TV, Podcasts) -->
+            <section class="category">
+                <h3 class="category-title">
+                    <span class="category-icon">🎬</span>
+                    Watch & Listen
+                </h3>
+                <div class="items">
+                    <div class="item">
+                        <div class="item-title">Everything Everywhere All at Once <span class="rating">10/10</span></div>
+                        <div class="item-meta">Movie · Sci-Fi Drama · 2022</div>
+                        <div class="item-description">
+                            Chaotic, heartfelt, and utterly brilliant. A multiverse film that's really about family, connection, and finding meaning in chaos.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">The Bear (Season 2) <span class="rating">9/10</span></div>
+                        <div class="item-meta">TV Show · Drama · Hulu</div>
+                        <div class="item-description">
+                            High-stress kitchen drama with incredible character development. The "Fishes" episode is some of the best television I've ever seen.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Radiolab: The Living Room <span class="rating">8/10</span></div>
+                        <div class="item-meta">Podcast · Science & Storytelling</div>
+                        <div class="item-description">
+                            A beautiful exploration of how spaces shape our memories and relationships. Made me think about my own home differently.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Huberman Lab: Sleep Toolkit <span class="rating">9/10</span></div>
+                        <div class="item-meta">Podcast · Health & Science</div>
+                        <div class="item-description">
+                            Practical, science-backed strategies for better sleep. Already implementing the morning sunlight routine.
+                        </div>
+                    </div>
                 </div>
-                <p class="subscription-note">Unsubscribe anytime. I'll only email when there's a new post.</p>
-            </form>
-        </section>
+            </section>
+        </main>
 
         <!-- Recommendations Section -->
         <section class="recommendations-section">
@@ -706,7 +687,7 @@
                         <option value="movie">🎬 Movie/TV/Podcast</option>
                         <option value="music">🎵 Music</option>
                         <option value="article">✍️ Article</option>
-                        <option value="event">📅 Event</option>
+                        <option value="event">🌍 Current Event</option>
                         <option value="other">💡 Other</option>
                     </select>
                 </div>
@@ -719,6 +700,22 @@
                     <textarea id="message" name="message" rows="4" placeholder="Tell me what makes it special..."></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Recommendation</button>
+            </form>
+        </section>
+
+        <!-- Email Subscription -->
+        <section class="subscription-section">
+            <h2 class="subscription-title">📬 Get Notified</h2>
+            <p class="subscription-subtitle">
+                Subscribe to get an email when the new monthly digest is published. No spam, just monthly updates on what's worth your time.
+            </p>
+            <form class="subscription-form" action="https://formspree.io/f/YOUR_SUBSCRIPTION_FORM_ID" method="POST">
+                <div class="subscription-inline">
+                    <input type="email" name="email" placeholder="your@email.com" required class="subscription-input">
+                    <input type="hidden" name="_subject" value="New Monthly Digest Subscriber">
+                    <button type="submit" class="subscription-btn">Subscribe</button>
+                </div>
+                <p class="subscription-note">Unsubscribe anytime. I'll only email when there's a new post.</p>
             </form>
         </section>
 
@@ -830,9 +827,7 @@
             
             // Add your archive months here
             archive: [
-                { month: "February", year: "2026" },
-                { month: "January", year: "2026" },
-                { month: "December", year: "2025" }
+                { month: "February", year: "2026" }
             ]
         };
 
