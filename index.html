@@ -228,15 +228,6 @@
             color: var(--text-primary);
         }
 
-        .album-cover {
-            width: 80px;
-            height: 80px;
-            border-radius: 6px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            flex-shrink: 0;
-        }
-
         .rating {
             display: inline-block;
             background: var(--accent);
@@ -508,11 +499,6 @@
             .subscription-btn {
                 width: 100%;
             }
-
-            .album-cover {
-                width: 60px;
-                height: 60px;
-            }
         }
     </style>
 </head>
@@ -520,7 +506,7 @@
     <div class="container">
         <header>
             <h1>Wyatt's Wavelength</h1>
-            <p class="subtitle">Curated monthly reads, listens, and takes on what's happening from a guy with too much time on his hands </p>
+            <p class="subtitle">Curated monthly reads, listens, and takes on what's happening from a guy with too much time on his hands</p>
         </header>
 
         <!-- Archive Navigation -->
@@ -586,56 +572,47 @@
                     <span class="category-icon">🎵</span>
                     Music
                 </h3>
-                <div class="items music-items">
-                    <div class="item music-item">
-                        <div class="music-content">
-                            <div class="item-title">Dónde Están Los Ladrones? by Shakira <span class="rating">9/10</span></div>
-                            <div class="item-meta">Latin Rock · Pop · Album</div>
-                            <div class="item-description">
-                                Peak Shakira before the English crossover. The production is raw and urgent, blending rock edge with Latin pop sensibility in ways that continue to sound fresh. "Ojos Así" brings Middle Eastern influences that were radical for mainstream Latin pop in 1998. This is the album that made her a global star for good reason—it's bold, experimental, and unapologetically Shakira.
-                            </div>
+                <div class="items">
+                    <div class="item">
+                        <div class="item-title">Dónde Están Los Ladrones? by Shakira <span class="rating">9/10</span></div>
+                        <div class="item-meta">Latin Rock · Pop · Album</div>
+                        <div class="item-description">
+                            Peak Shakira before the English crossover. The production is raw and urgent, blending rock edge with Latin pop sensibility in ways that continue to sound fresh. "Ojos Así" brings Middle Eastern influences that were radical for mainstream Latin pop in 1998. This is the album that made her a global star for good reason—it's bold, experimental, and unapologetically Shakira.
                         </div>
                     </div>
-                    <div class="item music-item">
-                            <div class="item-title">Funeral by Arcade Fire <span class="rating">8/10</span></div>
-                            <div class="item-meta">Indie Rock · Album</div>
-                            <div class="item-description">
-                                The orchestral indie rock blueprint that launched a thousand imitators, but few have matched the raw emotional urgency here. "Wake Up" and "Rebellion (Lies)" are generational anthems. The album tackles grief and loss with a sincerity that could've been maudlin but instead feels cathartic and life-affirming.
-                            </div>
+                    <div class="item">
+                        <div class="item-title">Funeral by Arcade Fire <span class="rating">8/10</span></div>
+                        <div class="item-meta">Indie Rock · Album</div>
+                        <div class="item-description">
+                            The orchestral indie rock blueprint that launched a thousand imitators, but few have matched the raw emotional urgency here. "Wake Up" and "Rebellion (Lies)" are generational anthems. The album tackles grief and loss with a sincerity that could've been maudlin but instead feels cathartic and life-affirming.
                         </div>
                     </div>
-                    <div class="item music-item">
-                            <div class="item-title">With Heaven on Top by Zach Bryan <span class="rating">8/10</span></div>
-                            <div class="item-meta">Country · Folk · Album</div>
-                            <div class="item-description">
-                                Zach Bryan proves he's the real deal... AGAIN. Stripped-down storytelling that cuts deep without unnecessary production. This is what modern country should sound like: raw, literate, and emotionally direct. No Nashville polish, just songs that matter.
-                            </div>
+                    <div class="item">
+                        <div class="item-title">With Heaven on Top by Zach Bryan <span class="rating">8/10</span></div>
+                        <div class="item-meta">Country · Folk · Album</div>
+                        <div class="item-description">
+                            Zach Bryan proves he's the real deal... AGAIN. Stripped-down storytelling that cuts deep without unnecessary production. This is what modern country should sound like: raw, literate, and emotionally direct. No Nashville polish, just songs that matter.
                         </div>
                     </div>
-                    <div class="item music-item">
-                            <div class="item-title">Here, My Dear by Marvin Gaye <span class="rating">8/10</span></div>
-                            <div class="item-meta">Soul · R&B · Album</div>
-                            <div class="item-description">
-                                The most expensive divorce album ever made. Marvin airing out his failed marriage in real time—bitter, beautiful, and brutally honest. Initially panned, it's aged into one of his most fascinating works. The vulnerability here is uncomfortable but compelling. He's working through his pain in the studio, and you're witnessing it unfold. Not an easy listen, but a rewarding one.
-                            </div>
+                    <div class="item">
+                        <div class="item-title">Here, My Dear by Marvin Gaye <span class="rating">8/10</span></div>
+                        <div class="item-meta">Soul · R&B · Album</div>
+                        <div class="item-description">
+                            The most expensive divorce album ever made. Marvin airing out his failed marriage in real time—bitter, beautiful, and brutally honest. Initially panned, it's aged into one of his most fascinating works. The vulnerability here is uncomfortable but compelling. He's working through his pain in the studio, and you're witnessing it unfold. Not an easy listen, but a rewarding one.
                         </div>
                     </div>
-                    <div class="item music-item">
-                        <div class="music-content">
-                            <div class="item-title">Ask Rufus by Chaka Khan <span class="rating">6/10</span></div>
-                            <div class="item-meta">Funk · Soul · Album</div>
-                            <div class="item-description">
-                                Late-era Rufus doesn't capture the magic of their earlier work. I respect the craft and Chaka's voice remains incredible, but this one didn't land for me. The title track has moments, but the album as a whole feels formulaic compared to their peak output. Not bad, just not essential.
-                            </div>
+                    <div class="item">
+                        <div class="item-title">Ask Rufus by Chaka Khan <span class="rating">6/10</span></div>
+                        <div class="item-meta">Funk · Soul · Album</div>
+                        <div class="item-description">
+                            Late-era Rufus doesn't capture the magic of their earlier work. I respect the craft and Chaka's voice remains incredible, but this one didn't land for me. The title track has moments, but the album as a whole feels formulaic compared to their peak output. Not bad, just not essential.
                         </div>
                     </div>
-                    <div class="item music-item">
-                        <div class="music-content">
-                            <div class="item-title">Suicide by Suicide <span class="rating">4/10</span></div>
-                            <div class="item-meta">Electronic · Punk · Album</div>
-                            <div class="item-description">
-                                I get why it's influential and respect the proto-punk electronic experimentation, but this just didn't hit. Too abrasive without enough payoff. The minimalist approach feels more tedious than revolutionary in practice. Not for me.
-                            </div>
+                    <div class="item">
+                        <div class="item-title">Suicide by Suicide <span class="rating">4/10</span></div>
+                        <div class="item-meta">Electronic · Punk · Album</div>
+                        <div class="item-description">
+                            I get why it's influential and respect the proto-punk electronic experimentation, but this just didn't hit. Too abrasive without enough payoff. The minimalist approach feels more tedious than revolutionary in practice. Not for me.
                         </div>
                     </div>
                 </div>
@@ -697,7 +674,7 @@
                         <div class="item-title">Accommodation Nation - The Atlantic <span class="rating">7/10</span></div>
                         <div class="item-meta">Essay · Rose Horowitch</div>
                         <div class="item-description">
-                            Sharp investigation into how academic accommodations have exploded at elite colleges. Students are gaming disability systems for extra time and quiet testing rooms, and schools are incentivized to enable it. Horowitch shows that disability diagnoses are proliferating faster at selective institutions than anywhere else—not because elite students are uniquely struggling, but because accommodations have become an arms race for competitive advantage. 
+                            Sharp investigation into how academic accommodations have exploded at elite colleges. Students are gaming disability systems for extra time and quiet testing rooms, and schools are incentivized to enable it. Horowitch shows that disability diagnoses are proliferating faster at selective institutions than anywhere else—not because elite students are uniquely struggling, but because accommodations have become an arms race for competitive advantage.
                         </div>
                     </div>
                     <div class="item">
@@ -812,123 +789,5 @@
             <p>Updated monthly with love · Last updated February 2026</p>
         </footer>
     </div>
-
-    <script>
-        // ============================================
-        // EASY UPDATE SECTION - EDIT YOUR CONTENT HERE
-        // ============================================
-
-        const MONTHLY_DATA = {
-            currentMonth: {
-                month: "February",
-                year: "2026",
-                intro: "From epic fantasy deep dives to exploring musical legends across decades, February was packed with compelling reads and listens. Plus tracking some major shifts in tech, markets, and global power dynamics.",
-                
-                books: [
-                    {
-                        title: "Dune by Frank Herbert",
-                        rating: "9/10",
-                        meta: "Science Fiction",
-                        description: "An epic tale of politics, religion, and ecology on a desert planet. The world-building is unmatched, and the themes about resource scarcity feel incredibly relevant today."
-                    },
-                    {
-                        title: "Project Hail Mary by Andy Weir",
-                        rating: "8/10",
-                        meta: "Science Fiction",
-                        description: "A gripping space survival story with clever science and an unexpectedly touching friendship. Couldn't put it down."
-                    }
-                ],
-                
-                watchAndListen: [
-                    {
-                        title: "Everything Everywhere All at Once",
-                        rating: "10/10",
-                        meta: "Movie · Sci-Fi Drama · 2022",
-                        description: "Chaotic, heartfelt, and utterly brilliant. A multiverse film that's really about family, connection, and finding meaning in chaos."
-                    },
-                    {
-                        title: "The Bear (Season 2)",
-                        rating: "9/10",
-                        meta: "TV Show · Drama · Hulu",
-                        description: "High-stress kitchen drama with incredible character development. The \"Fishes\" episode is some of the best television I've ever seen."
-                    },
-                    {
-                        title: "Radiolab: The Living Room",
-                        rating: "8/10",
-                        meta: "Podcast · Science & Storytelling",
-                        description: "A beautiful exploration of how spaces shape our memories and relationships. Made me think about my own home differently."
-                    },
-                    {
-                        title: "Huberman Lab: Sleep Toolkit",
-                        rating: "9/10",
-                        meta: "Podcast · Health & Science",
-                        description: "Practical, science-backed strategies for better sleep. Already implementing the morning sunlight routine."
-                    }
-                ],
-                
-                music: [
-                    {
-                        title: "Currents by Tame Impala",
-                        rating: "9/10",
-                        albumCover: "https://upload.wikimedia.org/wikipedia/en/9/9b/Tame_Impala_-_Currents.png",
-                        meta: "Psychedelic Pop · Album",
-                        description: "Perfect late-night listening. \"Let It Happen\" is an absolute journey."
-                    },
-                    {
-                        title: "Phoebe Bridgers - Punisher",
-                        rating: "10/10",
-                        albumCover: "https://upload.wikimedia.org/wikipedia/en/8/8b/Phoebe_Bridgers_-_Punisher.png",
-                        meta: "Indie Folk · Album",
-                        description: "Hauntingly beautiful songwriting. \"I Know The End\" builds to one of the most cathartic finales in recent music."
-                    }
-                ],
-
-                events: [
-                    {
-                        title: "AI Regulation Debate in EU",
-                        rating: "Important",
-                        meta: "Policy · Technology",
-                        description: "The EU's AI Act is setting global precedent for how we regulate artificial intelligence. Watching closely how they balance innovation with safety."
-                    },
-                    {
-                        title: "Climate Tech Breakthroughs",
-                        rating: "Hopeful",
-                        meta: "Science · Environment",
-                        description: "New carbon capture technology showing promise in Iceland trials. Small-scale but could be a game-changer if it scales economically."
-                    }
-                ],
-                
-                articles: [
-                    {
-                        title: "How to Build a Life - The Atlantic",
-                        rating: "9/10",
-                        meta: "Essay Series by Arthur C. Brooks",
-                        description: "A thoughtful series on happiness and meaning. The piece on deep work versus shallow busyness really resonated."
-                    },
-                    {
-                        title: "The Case for Optimism",
-                        rating: "8/10",
-                        meta: "Long Read · NY Times",
-                        description: "Data-driven argument about why the world is getting better in measurable ways, even if it doesn't feel like it."
-                    }
-                ]
-            },
-            
-            // Add your archive months here
-            archive: [
-                { month: "February", year: "2026" }
-            ]
-        };
-
-        // ALBUM COVER INSTRUCTIONS:
-        // To add album covers, you can:
-        // 1. Use a URL from Wikipedia (search "[album name] wikipedia" and copy image URL)
-        // 2. Use a direct image URL from any source
-        // 3. Upload your own images to a free service like Imgur or imgbb
-        // 4. Just add the albumCover property with the URL to any music item
-
-        // You can add JavaScript functionality here for switching between months
-        // For now, this is a static single-page version
-    </script>
 </body>
 </html>
